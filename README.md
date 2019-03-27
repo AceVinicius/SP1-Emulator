@@ -9,3 +9,4 @@ For future compiles:
 ```console
 $ bash run.sh
 ```
+Additional assemblies can be usad adding in 'assemblies' folder, and changing the file name in 'run.sh'.
