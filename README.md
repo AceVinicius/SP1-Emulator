@@ -2,7 +2,7 @@
 
 First time run:
 ```console
-$ bash compile_fedora.sh
+$ bash compile_[ distribution ].sh
 ```
 
 For future compiles:
