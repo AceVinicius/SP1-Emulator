@@ -20,5 +20,4 @@ cd ../
 
 
 # Compile and run SP1 Emulator
-ccache gcc cpu.c -Wall -o ./sp1_processor
-./sp1_processor ./assembler/test.bin
+bash run.sh
