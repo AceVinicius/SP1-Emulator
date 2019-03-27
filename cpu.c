@@ -206,7 +206,8 @@ main(      int   argc,
             /*
              *     Code Format: store $address
              *  Operation Code: 02
-             *      Definition: Store the acc value in memory position defined by 'adress'
+             *      Definition: Store the acc value in memory position defined 
+             *      by 'adress'
              */
             case 2:
             {
