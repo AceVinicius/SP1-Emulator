@@ -1,3 +1,7 @@
 # SP1-Emulator
 
-$ bash compile_fedora.sh
+First time run:
+$bash compile_fedora.sh
+
+For future compiles:
+$bash run.sh
