@@ -1,11 +1,11 @@
 # SP1-Emulator
 
-First time run:
+First run:
 ```console
-$ bash compile_[ distribution ].sh
+$ bash dependencies_[ distribution ].sh
 ```
 
-For future compiles:
+Future runs only needs this, assuming all libraries was successfully installed:
 ```console
 $ bash run.sh
 ```
