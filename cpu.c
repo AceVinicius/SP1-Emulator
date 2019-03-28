@@ -851,7 +851,11 @@ SHUTDOWN:
 
 
     printf( "  acc: %3d\n", acc );
-    printf( " stat: %3d\n", stat );
+    printf( " stat: xxxxx");
+    printf( "%c", stat & OVERFLOW ? '1' : '0' );
+    printf( "%c", stat & CARRY    ? '1' : '0' );
+    printf( "%c", stat & ZEROACC  ? '1' : '0' );
+    printf( "\n" );
 
 
     return EXIT_SUCCESS;
