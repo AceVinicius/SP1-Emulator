@@ -2,7 +2,7 @@
 
 First run:
 ```console
-$ bash dependencies_[ distribution ].sh
+$ bash dependencies.sh
 ```
 
 Future runs only needs this, assuming all libraries was successfully installed:
