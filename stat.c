@@ -5,11 +5,13 @@
 
 
 void
-setStat(uint8_t *stat,
-        uint8_t  test,
+setStat(byte    *stat,
+        byte     test,
         int32_t  var )
 {
-    *stat = zeroACC(var);
+    *stat = 0;
+    
+    *stat += zeroACC(var);
 
     if(test == OVERFLOW)
     {
@@ -28,7 +30,7 @@ setStat(uint8_t *stat,
 
 
 
-uint8_t
+byte
 zeroACC(int32_t var)
 {   
     if(var == 0)
@@ -41,10 +43,10 @@ zeroACC(int32_t var)
 
 
 
-uint8_t
+byte
 carry(int32_t var)
 {   
-    if(var < 0 || var > 255)
+    if(var > 255 || var < 0)
     {
         return CARRY;
     }
@@ -54,10 +56,10 @@ carry(int32_t var)
 
 
 
-uint8_t
+byte
 overflow(int32_t var)
 {   
-    if(var < 0 || var > 255)
+    if(var == 0)
     {
         return OVERFLOW;
     }
