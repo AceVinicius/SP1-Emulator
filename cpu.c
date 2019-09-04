@@ -359,7 +359,7 @@ main(      int   argc  ,
             /*
              *     Code Format : hlt
              *  Operation Code : 15
-             *      Definition : end program (return 0)
+             *      Definition : end program
              */
             case 15:
             {
@@ -383,9 +383,11 @@ main(      int   argc  ,
     }
 
     printf("  acc: %03d\n" , acc);
-    printf(" stat: xxxxx%c", stat & OVERFLOW ? '1' : '0');
-    printf("%c"            , stat & CARRY    ? '1' : '0');
-    printf("%c\n"          , stat & ZEROACC  ? '1' : '0');
+    printf(" stat: xxxxx");
+    printf("%c", stat & OVERFLOW ? '1' : '0');
+    printf("%c", stat & CARRY    ? '1' : '0');
+    printf("%c", stat & ZEROACC  ? '1' : '0');
+    printf("\n");
 
     return EXIT_SUCCESS;
 }
