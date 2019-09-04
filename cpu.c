@@ -23,8 +23,8 @@
 
 typedef struct format
 {
-    uint8_t operand;     // Identifier  -> 0b00000000 (0) to 0b11111111 (255)
-    uint8_t opcode;      // Instruction -> 0b00000000 (0) to 0b00001111  (15)
+    byte operand;     // Identifier  -> 0b00000000 (0) to 0b11111111 (255)
+    byte opcode;      // Instruction -> 0b00000000 (0) to 0b00001111  (15)
 } INSTRUCTION;
 
 
@@ -39,12 +39,12 @@ main(      int   argc  ,
      *    acc  -> The values of all logic and arithmetic sentences;
      *    pc   -> Where I should look for an instruction;
      */
-    uint8_t stat = 0;     // Status
-    uint8_t acc  = 0;     // Acumulator
-    uint8_t pc   = 0;     // Program Counter
+    byte stat = 0;     // Status
+    byte acc  = 0;     // Acumulator
+    byte pc   = 0;     // Program Counter
 
-    uint8_t memory[ MAX ];         // Simulate computer RAM 
-    uint8_t buffer[ QTD_ARG ];     // Separe file input in two parts
+    byte memory[ MAX ];         // Simulate computer RAM 
+    byte buffer[ QTD_ARG ];     // Separe file input in two parts
 
     INSTRUCTION format[ MAX ];     // Store instruction for post execution
 
@@ -56,7 +56,7 @@ main(      int   argc  ,
         return EXIT_FAILURE;
     }
 
-    while (fread(buffer, sizeof(uint8_t), 1 << 1, program))
+    while (fread(buffer, sizeof(byte), 1 << 1, program))
     {
         format[ pc ].opcode  = *(buffer);
         format[ pc ].operand = *(buffer+1);
@@ -94,8 +94,8 @@ main(      int   argc  ,
      */
     while (status)
     {
-        uint8_t opcode  = format[ pc ].opcode;
-        uint8_t operand = format[ pc ].operand;
+        byte opcode  = format[ pc ].opcode;
+        byte operand = format[ pc ].operand;
 
         ++pc;
         
@@ -359,7 +359,7 @@ main(      int   argc  ,
             /*
              *     Code Format : hlt
              *  Operation Code : 15
-             *      Definition : end program
+             *      Definition : end program (return 0)
              */
             case 15:
             {
@@ -375,6 +375,7 @@ main(      int   argc  ,
             default:
             {   
                 fprintf(stderr, "Error: Unknown opcode %d. Value must be between 0 and 15.\n", opcode);
+
                 return EXIT_FAILURE;
 
                 break;
@@ -383,11 +384,9 @@ main(      int   argc  ,
     }
 
     printf("  acc: %03d\n" , acc);
-    printf(" stat: xxxxx");
-    printf("%c", stat & OVERFLOW ? '1' : '0');
-    printf("%c", stat & CARRY    ? '1' : '0');
-    printf("%c", stat & ZEROACC  ? '1' : '0');
-    printf("\n");
+    printf(" stat: xxxxx%c", stat & OVERFLOW ? '1' : '0');
+    printf("%c"            , stat & CARRY    ? '1' : '0');
+    printf("%c\n"          , stat & ZEROACC  ? '1' : '0');
 
     return EXIT_SUCCESS;
 }
