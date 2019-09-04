@@ -14,7 +14,7 @@ mul     $3
 #WHILE:
     dec
     store   $4
-    jnz #WHILE
+    jnz   #WHILE
 add     $1
 add     $3
 add     $4
