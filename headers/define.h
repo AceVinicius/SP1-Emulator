@@ -14,10 +14,13 @@
 # define OK                  0
 
 /*
- *  Debug and ASM_FILE.asm generator
+ * Debug and .asm generator
  */
 # define DEBUG(x)          //  x
 # define ASM_FILE(x)         x
+
+
+typedef uint8_t byte;
 
 
 
