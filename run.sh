@@ -10,7 +10,7 @@ make & make tab
 cd ../
 
 # Compile and run SP1 Emulator
-ccache gcc cpu.c -Wextra -Ofast -o ./sp1_processor
+ccache gcc cpu.c stat.c -Wextra -Ofast -o ./sp1_processor
 
 echo "simple.asm"
 ./sp1_processor ./assembler/simple.bin
