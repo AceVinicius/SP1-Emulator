@@ -3,15 +3,15 @@
 
 
 
-void     setStat   (uint8_t *stat,
-                    uint8_t  test,
-                    int32_t  var );
+void  setStat   (byte    *stat,
+                 byte     test,
+                 int32_t  var );
 
-uint8_t  zeroACC   (int32_t var);
+byte  zeroACC   (int32_t var);
 
-uint8_t  carry     (int32_t var);
+byte  carry     (int32_t var);
 
-uint8_t  overflow  (int32_t var);
+byte  overflow  (int32_t var);
 
 
 
