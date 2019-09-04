@@ -9,9 +9,7 @@ setStat(uint8_t *stat,
         uint8_t  test,
         int32_t  var )
 {
-    *stat = 0;
-    
-    *stat += zeroACC(var);
+    *stat = zeroACC(var);
 
     if(test == OVERFLOW)
     {
@@ -46,7 +44,7 @@ zeroACC(int32_t var)
 uint8_t
 carry(int32_t var)
 {   
-    if(var > 255 || var < 0)
+    if(var < 0 || var > 255)
     {
         return CARRY;
     }
@@ -59,7 +57,7 @@ carry(int32_t var)
 uint8_t
 overflow(int32_t var)
 {   
-    if(var == 0)
+    if(var < 0 || var > 255)
     {
         return OVERFLOW;
     }
