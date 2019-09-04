@@ -14,7 +14,7 @@
 # define OK                  0
 
 /*
- * Debug and .asm generator
+ *  Debug and ASM_FILE.asm generator
  */
 # define DEBUG(x)          //  x
 # define ASM_FILE(x)         x
