@@ -9,4 +9,4 @@ Future runs only needs this, assuming all libraries was successfully installed:
 ```console
 $ bash run.sh
 ```
-Additional assemblies can be usad adding in 'assemblies' folder, and changing the file name in 'run.sh'.
+Additional assemblies can be used adding in 'assemblies' folder, and changing the file name in 'run.sh'.
