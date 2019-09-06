@@ -210,12 +210,15 @@ main(      int   argc  ,
              */
             case 6:
             {
-                if (memory[ operand ] != 0)
+                if (memory[ operand ] == 0)
                 {
-                    acc /= memory[ operand ];    
+                    ASM_FILE( fprintf(assembly, "div   $ %-3d ; Can't divide by zero\n", operand, acc); )
+                    break;    
                 }
                 
-                setStat(&stat, OVERFLOW, memory[ operand ] != 0 ? acc : -1);
+                acc /= memory[ operand ];     
+                
+                setStat(&stat, ZEROACC, acc);
                 
 
                 ASM_FILE( fprintf(assembly, "div   $ %-3d ; acc = %d\n", operand, acc); )
@@ -317,8 +320,6 @@ main(      int   argc  ,
             {
                 pc = operand;
 
-                setStat(&stat, ZEROACC, acc);
-
                 break;
             }
 
@@ -333,9 +334,7 @@ main(      int   argc  ,
                 {
                     pc = operand / 2;
                 }
-
-                setStat(&stat, ZEROACC, acc);
-
+                
                 break;
             }
 
@@ -350,8 +349,6 @@ main(      int   argc  ,
                 {
                     pc = operand / 2;
                 }
-
-                setStat(&stat, ZEROACC, acc);
 
                 break;
             }
