@@ -18,7 +18,7 @@
  * Debug and .asm generator
  */
 // # define DEBUG
-// # define ASM_FILE
+# define ASM_FILE
 
 /*
  * Typedefs

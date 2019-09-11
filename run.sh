@@ -2,7 +2,7 @@
 
 # Compile Assembler
 cd lib/assembler
-# make & make tab
+make & make tab
 
 # Compile assembly files
 cd ../../bin
