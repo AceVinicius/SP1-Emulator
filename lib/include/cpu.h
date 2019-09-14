@@ -1,7 +1,6 @@
 #ifndef CPU_H_
 # define CPU_H_
 
-# include "include.h"
 # include "define.h"
 
 
