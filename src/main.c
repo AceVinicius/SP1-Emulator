@@ -14,7 +14,6 @@
  ********************************************************************************/
 # include "./../lib/include/include.h"
 # include "./../lib/include/define.h"
-# include "./../lib/include/stat.h"
 # include "./../lib/include/cpu.h"
 
 
@@ -25,7 +24,7 @@ main(       int   argc   ,
 {
     for ( int binary = 1; binary < argc; ++binary )
     {
-        INSTRUCTION format[ MAX ];     // Store instruction for post execution
+        INSTRUCTION format[ MAX ];  // Store instruction for post execution
 
         byte buffer[ QTD_ARG ];     // Separe file input in two parts
 
@@ -37,10 +36,12 @@ main(       int   argc   ,
             return EXIT_FAILURE;
         }
 
-        for (int i = 0; fread(buffer, sizeof(byte), QTD_ARG, binary_file); ++i )
+        printf( "\n\t%s\n\n", argv[ binary ] );
+
+        for ( int i = 0; fread( buffer, sizeof( byte ), QTD_ARG, binary_file ); ++i )
         {
-            format[ i ].opcode  = *(buffer);
-            format[ i ].operand = *(buffer+1);
+            format[ i ].opcode  = *( buffer );
+            format[ i ].operand = *( buffer+1 );
 
 #ifdef DEBUG
             printf( "DEBUG:  opcode:%-3u  operand:%-3u\n", format[ i ].opcode, format[ i ].operand );
@@ -53,6 +54,7 @@ main(       int   argc   ,
         char ASM_PATH[ 100 ] = "./../lib/debug/ASM_FILE_";
 
         strcat( ASM_PATH, argv[ binary ] );
+        strcat( ASM_PATH, ".asm" );
 
         FILE *assembly = fopen(ASM_PATH, "w");
         if ( assembly == NULL )
@@ -63,12 +65,9 @@ main(       int   argc   ,
         fprintf( assembly, ";\tAssembly code\n\n" );
 #endif
 
-        printf("\n\t%s\n\n", argv[binary]);
-
-        cpu(format
+        cpu( format
 #ifdef ASM_FILE
-            ,
-            assembly
+           , assembly
 #endif
         );
     }
