@@ -3,9 +3,6 @@
 
 
 
-/*
- *  Macros
- */
 # define MAX            1 << 8
 # define QTD_ARG        1 << 1
 
@@ -14,15 +11,11 @@
 # define ZEROACC             1
 # define OK                  0
 
-/*
- * Debug and .asm generator
- */
 // # define DEBUG
 # define ASM_FILE
 
-/*
- * Typedefs
- */
+
+
 typedef uint8_t byte;
 
 typedef struct format
