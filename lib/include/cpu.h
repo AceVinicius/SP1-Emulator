@@ -6,7 +6,7 @@
 
 
 
-void  cpu  ( INSTRUCTION  *format
+void  cpu  ( INSTRUCTION *format
 # ifdef ASM_FILE
            , FILE        *assembly
 # endif
