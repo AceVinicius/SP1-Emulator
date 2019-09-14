@@ -18,11 +18,11 @@ cpu( INSTRUCTION *format
      *    acc  -> The values of all logic and arithmetic sentences;
      *    pc   -> Where I should look for an instruction;
      */
-    byte stat = 0;     // Status
-    byte acc  = 0;     // Acumulator
-    byte pc   = 0;     // Program Counter
+    byte stat = 0;       // Status
+    byte acc  = 0;       // Acumulator
+    byte pc   = 0;       // Program Counter
 
-    byte memory[ MAX ];         // Simulate computer RAM
+    byte memory[ MAX ];  // Simulate computer RAM
 
     bool status = true;
 
