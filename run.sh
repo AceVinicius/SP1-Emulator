@@ -11,8 +11,8 @@ cd ../../bin
 
 # Create Obj files
 cd ../src
-ccache gcc cpu.c  -c -Wall -W -O3 -o ../obj/cpu.o
-ccache gcc stat.c -c -Wall -W -O3 -o ../obj/stat.o
+ccache clang cpu.c  -c -Wall -W -O3 -o ../obj/cpu.o
+ccache clang stat.c -c -Wall -W -O3 -o ../obj/stat.o
 
 # Create static library
 cd ../obj
@@ -20,7 +20,7 @@ ar -rcs libsp1.a cpu.o stat.o
 
 # Compile and link sp1_library
 cd ../src
-ccache gcc main.c -lsp1 -L../obj -Wall -W -O3 -o ../bin/sp1_emulator
+ccache clang main.c -lsp1 -L../obj -Wall -W -O3 -o ../bin/sp1_emulator
 
 # Run SP1_Emulator
 cd ../bin
