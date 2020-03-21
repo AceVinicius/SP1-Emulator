@@ -2,7 +2,7 @@
 
 To install all dependencies run:
 ```console
-$ bash dependencies.sh
+$ sudo bash dependencies.sh
 ```
 
 After that, assuming all libraries was successfully installed, run:
