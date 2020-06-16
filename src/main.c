@@ -40,11 +40,9 @@ main(       int   argc   ,
         FILE *binary_file = fopen( argv[ binary ], "rb" );
         if ( binary_file == NULL )
         {
-            fprintf( stderr, binary_file_open_error );
-            return EXIT_FAILURE;
+            fprintf( stderr, binary_file_open_error, argv[ binary ] );
+            continue;
         }
-
-        printf( "\n\t%s\n\n", argv[ binary ] );
 
         for ( int i = 0; fread( buffer, sizeof( byte ), QTD_ARG, binary_file ); ++i )
         {
@@ -67,12 +65,13 @@ main(       int   argc   ,
         FILE *assembly = fopen( ASM_PATH, "w" );
         if ( assembly == NULL )
         {
-            fprintf( stderr, asm_file_debug_error );
-            return EXIT_FAILURE;
+            fprintf( stderr, asm_file_debug_error, ASM_PATH );
+            continue;
         }
-
         fprintf( assembly, ";\tAssembly code\n\n" );
 #endif
+
+        printf( "\n\t%s\n\n", argv[ binary ] );
 
         cpu( format
 #ifdef ASM_FILE
