@@ -12,9 +12,17 @@
  *****                                                                      *****
  ********************************************************************************
  ********************************************************************************/
-# include "./../lib/include/include.h"
-# include "./../lib/include/define.h"
-# include "./../lib/include/cpu.h"
+#include <stdlib.h>
+#include <stdint.h>
+#include <stdio.h>
+
+#include "./../lib/include/constants.h"
+#include "./../lib/include/define.h"
+#include "./../lib/include/cpu.h"
+
+#ifdef ASM_FILE
+# include <string.h>
+#endif
 
 
 
@@ -32,7 +40,7 @@ main(       int   argc   ,
         FILE *binary_file = fopen( argv[ binary ], "rb" );
         if ( binary_file == NULL )
         {
-            fprintf( stderr, "Error: Need to provide the file's name.\n" );
+            fprintf( stderr, binary_file_open_error );
             return EXIT_FAILURE;
         }
 
@@ -56,10 +64,11 @@ main(       int   argc   ,
         strcat( ASM_PATH, argv[ binary ] );
         strcat( ASM_PATH, ".asm" );
 
-        FILE *assembly = fopen(ASM_PATH, "w");
+        FILE *assembly = fopen( ASM_PATH, "w" );
         if ( assembly == NULL )
         {
-            fprintf( stderr, "Error: Cannot generate assembly file\n" );
+            fprintf( stderr, asm_file_debug_error );
+            return EXIT_FAILURE;
         }
 
         fprintf( assembly, ";\tAssembly code\n\n" );

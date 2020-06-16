@@ -3,6 +3,9 @@
 
 
 
+// # define DEBUG
+// # define ASM_FILE
+
 # define MAX            1 << 8
 # define QTD_ARG        1 << 1
 
@@ -10,9 +13,6 @@
 # define CARRY               2     
 # define ZEROACC             1
 # define OK                  0
-
-// # define DEBUG
-# define ASM_FILE
 
 
 

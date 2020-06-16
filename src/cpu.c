@@ -1,10 +1,13 @@
-# include "./../lib/include/include.h"
-# include "./../lib/include/define.h"
-# include "./../lib/include/stat.h"
-# include "./../lib/include/cpu.h"
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+
+#include "./../lib/include/define.h"
+#include "./../lib/include/stat.h"
+#include "./../lib/include/cpu.h"
 
 
-    
+
 void
 cpu( INSTRUCTION *format
 #ifdef ASM_FILE

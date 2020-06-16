@@ -1,6 +1,12 @@
-# include "./../lib/include/include.h"
-# include "./../lib/include/define.h"
-# include "./../lib/include/stat.h"
+#include <stdint.h>
+
+#include "./../lib/include/define.h"
+#include "./../lib/include/stat.h"
+
+#ifdef DEBUG
+# include <stdio.h>
+#endif
+
 
 
 
