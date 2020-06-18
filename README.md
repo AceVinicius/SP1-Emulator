@@ -1,6 +1,10 @@
 # SP1-Emulator
 
-This project was created in 
+
+This was created as an university project to emulate a SP1 processor. It is a
+hypothetical processor created to be simple and is intended to be the first step
+towards more complex emulators.
+
 To install all dependencies run:
 ```console
 $ sudo bash dependencies.sh
