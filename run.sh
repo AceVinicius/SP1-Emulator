@@ -20,7 +20,7 @@ ar -rcs libsp1.a cpu.o stat.o
 
 # Compile and link sp1_library
 cd ../src
-clang main.c -lsp1 -L../obj -Wall -Wextra -Wabi -Wpedantic -O3 -o ../bin/sp1_emulator
+ccache clang main.c -lsp1 -L../obj -Wall -Wextra -Wabi -Wpedantic -O3 -o ../bin/sp1_emulator
 
 # Run SP1_Emulator
 cd ../bin
